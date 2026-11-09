@@ -1,140 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Destiny Growrich </title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <style>
-        /* Ensure the body takes up the full height minus 1 inch */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: calc(100vh - 1in); /* Reduces page height by 1 inch */
-        }
-
-        /* Ensure content fills the page, and footer stays at the bottom */
-        .content-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100%;
-        }
-
-        .content {
-            flex: 1;
-            text-align: center;
-        }
-
-        footer {
-            background-color: rgba(0, 0, 0, 0.0); /* Transparent black */
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Social media icons styling */
-        .social-links img {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Allhaildahking — independent developer building software, AI systems and useful digital products.">
+  <meta property="og:title" content="Allhaildahking — Independent Developer">
+  <meta property="og:description" content="Building software, AI systems and useful digital products.">
+  <meta property="og:type" content="website">
+  <title>Allhaildahking — Independent Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="icon" href="./assets/img/IMG1.jpeg">
 </head>
 <body>
-    <div class="content-wrapper">
-        <!-- Loader -->
-        <div class="loader">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#home" aria-label="Allhaildahking home"><span class="mark">A<span>.</span></span><span>ALLHAILDAHKING</span></a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#stack">Stack</a><a class="nav-contact" href="mailto:hello@allhaildahking.dev">Let's talk <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-grid"></div>
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span> INDEPENDENT DEVELOPER <span class="eyebrow-line"></span> NIGERIA</div>
+          <h1>Ideas into<br><span class="outline-word">working</span> things<span class="accent">.</span></h1>
+          <p class="hero-intro">I build software, explore AI, and turn curious ideas into useful digital products. Quietly learning. Constantly building.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">Explore my work <span>↘</span></a>
+            <a class="text-link" href="https://github.com/Allhaildahking" target="_blank" rel="noreferrer">GitHub profile <span>↗</span></a>
+          </div>
+          <div class="hero-meta"><span>01 / CREATIVE ENGINEERING</span><span>BUILDING WITH INTENTION</span></div>
         </div>
-
-        <!-- Navigation bar -->
-        <header>
-            <nav>
-                <ul>
-                    <a href="#">
-                        <li><button>Home</button></li>
-                    </a>
-                    <a href="./about.html">
-                        <li><button>About</button></li>
-                    </a>
-                    <a href="#">
-                        <li><button>Projects</button></li>
-                    </a>
-                    <a href="#">
-                        <li><button>Contact</button></li>
-                    </a>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Video Background with Fallback Image -->
-        <div class="video-background">
-            <video id="myVideo" autoplay muted loop>
-                <source src="./assets/videos/vid1.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-            </video>
-            <img id="fallbackImage" src="./assets/img/fallback-image.jpg" alt="Fallback Image" style="display: none;">
+        <div class="hero-visual">
+          <div class="visual-frame">
+            <div class="frame-top"><span>FIG. 001</span><span>THE BUILDER'S DESK</span><span>● LIVE</span></div>
+            <div class="portrait-wrap"><img src="./assets/img/IMG1.jpeg" alt="Portrait of Allhaildahking"></div>
+            <div class="visual-caption"><span class="caption-index">A—01</span><div><strong>ALLHAILDAHKING</strong><small>Developer · Creator · Curious mind</small></div><span class="caption-cross">✳</span></div>
+          </div>
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <span class="side-note">THINK / BUILD / REFINE</span>
         </div>
+        <div class="scroll-cue"><span></span> SCROLL TO EXPLORE</div>
+      </section>
 
-        <!-- Content with profile picture and title -->
-        <div class="content">
-            <img src="asset/IMG1.jpeg" alt="Destiny Growrich" class="profile-pic">
-            <h1>Destiny Growrich</h1>
-            <p>Python Developer</p>
-             <p>I am a Python developer with a diverse skill set that extends to graphic design, social media management, content creation, and gaming. My expertise in Python allows me to build efficient, scalable solutions for various projects, while my creativity in design and content keeps my work visually appealing and engaging. I thrive on challenges and enjoy merging my technical and creative skills to produce innovative results in every area I work in. Outside of development, I'm an avid gamer, constantly looking for new ways to push the boundaries of creativity and technology.</p>
+      <section class="work-section section-pad" id="work">
+        <div class="section-heading"><div><span class="section-kicker">01 — SELECTED WORK</span><h2>Things in<br>the making<span class="accent">.</span></h2></div><p>A selection of experiments and active builds. Some are early, some are growing. All are part of the process.</p></div>
+        <div class="project-grid">
+          <a class="project-card project-featured" href="https://github.com/Allhaildahking/M.A.R.S" target="_blank" rel="noreferrer">
+            <div class="project-top"><span>01 / AI SYSTEMS</span><span class="project-arrow">↗</span></div><div class="project-art mars-art"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-core">M.A.R.S</div><span class="art-coordinate">REASONING ENGINE / 001</span></div>
+            <div class="project-info"><div><h3>M.A.R.S</h3><p>A modular AI assistant exploring reasoning, memory, research and permissioned tools.</p></div><span class="project-status">IN DEVELOPMENT</span></div>
+            <div class="tag-row"><span>PYTHON</span><span>FASTAPI</span><span>NEXT.JS</span><span>AI</span></div>
+          </a>
+          <a class="project-card" href="https://github.com/Allhaildahking/Trade-Oracle" target="_blank" rel="noreferrer">
+            <div class="project-top"><span>02 / MARKET INTELLIGENCE</span><span class="project-arrow">↗</span></div><div class="project-art chart-art"><div class="chart-label">TRADE ORACLE <small>MARKET STRUCTURE / 002</small></div><svg viewBox="0 0 520 170" role="img" aria-label="Abstract market chart"><path d="M0 135 L48 118 L82 130 L126 78 L160 95 L203 55 L245 84 L286 36 L322 62 L365 25 L405 48 L452 12 L520 30" fill="none" stroke="currentColor" stroke-width="2"/><path d="M0 135 L48 118 L82 130 L126 78 L160 95 L203 55 L245 84 L286 36 L322 62 L365 25 L405 48 L452 12 L520 30 L520 170 L0 170Z" fill="url(#chartFill)" opacity=".22"/><defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#c6a36a"/><stop offset="1" stop-color="#c6a36a" stop-opacity="0"/></linearGradient></defs></svg></div>
+            <div class="project-info"><div><h3>Trade Oracle</h3><p>A Forex market-intelligence engine for structured, auditable analysis.</p></div><span class="project-status">FOUNDATION</span></div><div class="tag-row"><span>PYTHON</span><span>ANALYSIS</span><span>FOREX</span></div>
+          </a>
+          <a class="project-card" href="https://github.com/Allhaildahking/Market-Radar-" target="_blank" rel="noreferrer">
+            <div class="project-top"><span>03 / AUTOMATION</span><span class="project-arrow">↗</span></div><div class="project-art radar-art"><div class="radar-sweep"></div><div class="radar-circle"></div><div class="radar-circle inner"></div><span class="radar-point p1"></span><span class="radar-point p2"></span><span class="radar-point p3"></span><span class="radar-word">SIGNAL DETECTED</span></div>
+            <div class="project-info"><div><h3>Market Radar</h3><p>A news pipeline that tracks sources, filters duplicates and sends Telegram alerts.</p></div><span class="project-status">BUILDING</span></div><div class="tag-row"><span>PYTHON</span><span>SQLITE</span><span>TELEGRAM</span></div>
+          </a>
+          <a class="project-card" href="https://github.com/Allhaildahking/BabelLive" target="_blank" rel="noreferrer">
+            <div class="project-top"><span>04 / REAL-TIME AI</span><span class="project-arrow">↗</span></div><div class="project-art babel-art"><div class="sound-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>EN <b>→</b> ES</span><small>LIVE LANGUAGE BRIDGE</small></div>
+            <div class="project-info"><div><h3>BabelLive</h3><p>An early-stage experiment in real-time AI speech translation for live broadcasts.</p></div><span class="project-status">EXPERIMENT</span></div><div class="tag-row"><span>PYTHON</span><span>AI</span><span>AUDIO</span></div>
+          </a>
+          <a class="project-card" href="https://github.com/Allhaildahking/lorelab" target="_blank" rel="noreferrer">
+            <div class="project-top"><span>05 / STORYTELLING</span><span class="project-arrow">↗</span></div><div class="project-art lore-art"><span class="lore-symbol">L<span>.</span></span><span class="lore-small">RESEARCH / NARRATIVE / PRODUCTION</span></div>
+            <div class="project-info"><div><h3>LoreLab</h3><p>An AI-assisted research and production workflow for history-focused storytelling.</p></div><span class="project-status">PRIVATE MVP</span></div><div class="tag-row"><span>AI WORKFLOWS</span><span>RESEARCH</span><span>STORY</span></div>
+          </a>
+          <a class="project-card portfolio-card" href="https://github.com/Allhaildahking" target="_blank" rel="noreferrer">
+            <div class="project-top"><span>06 / OPEN SOURCE</span><span class="project-arrow">↗</span></div><div class="project-art github-art"><div class="github-mark">GH<span>_</span></div><span>MORE EXPERIMENTS<br>ON GITHUB</span></div>
+            <div class="project-info"><div><h3>More in progress</h3><p>Small tools, prototypes and ideas that don't fit in a box yet.</p></div><span class="project-status">ONGOING</span></div><div class="tag-row"><span>EXPLORATION</span><span>OPEN SOURCE</span></div>
+          </a>
         </div>
-        </div>
+      </section>
 
-        <!-- Footer Section with Social Links and Icons -->
-        <footer>
-            <div class="social-links">
-                <a href="https://www.facebook.com/dahking.growrich?mibextid=ZbWKwL" target="_blank">
-                    <img src="./assets/img/facebook-icon.png" alt="Facebook Icon"> Facebook
-                </a>
-                <a href="https://github.com/allhaildahking" target="_blank">
-                    <img src="./assets/img/github-icon.png" alt="GitHub Icon"> GitHub
-                </a>
-                <a href="https://x.com/allhail_dahking?s=09" target="_blank">
-                    <img src="./assets/img/twitter-icon.png" alt="Twitter Icon"> X (Twitter)
-                </a>
-                <a href="https://www.instagram.com/allhail_dahking?igsh=MTgwcm1xZDFubW5ldA==" target="_blank">
-                    <img src="./assets/img/instagram-icon.png" alt="Instagram Icon"> Instagram
-                </a>
-                <a href="https://www.linkedin.com/in/destiny-growrich-b509812a8" target="_blank">
-                    <img src="./assets/img/linkedin-icon.png" alt="LinkedIn Icon"> LinkedIn
-                </a>
-            </div>
-        </footer>
-    </div>
+      <section class="about-section section-pad" id="about">
+        <div class="section-kicker">02 — A LITTLE ABOUT ME</div>
+        <div class="about-layout"><h2>Curiosity is<br>the starting point<span class="accent">.</span></h2><div class="about-copy"><p class="about-lead">I'm an independent developer and digital creator interested in what technology makes possible.</p><p>My work moves between software, AI systems, market tools and creative projects. I enjoy understanding how things work, pulling ideas apart, and building my own versions of things that could be useful.</p><p>I'm still learning, still experimenting, and more interested in making real things than pretending to have it all figured out.</p><a class="text-link" href="https://github.com/Allhaildahking" target="_blank" rel="noreferrer">A closer look at my GitHub <span>↗</span></a></div></div>
+        <div class="about-bottom"><span>BASED IN NIGERIA</span><span>INDEPENDENT BY DESIGN</span><span>ALWAYS A WORK IN PROGRESS</span></div>
+      </section>
 
-    <script>
-        window.onload = function() {
-            const loader = document.querySelector('.loader');
-            loader.style.display = 'none'; // Hide the loader
-        };
+      <section class="stack-section section-pad" id="stack">
+        <div class="section-heading stack-heading"><div><span class="section-kicker">03 — TOOLS & TECHNOLOGIES</span><h2>My current<br>toolkit<span class="accent">.</span></h2></div><p>The tools I use, learn and reach for while building. The stack changes as the work demands.</p></div>
+        <div class="stack-list"><div><span>01</span><strong>LANGUAGES</strong><p>Python · JavaScript · TypeScript · HTML · CSS</p></div><div><span>02</span><strong>FRAMEWORKS</strong><p>FastAPI · React · Next.js</p></div><div><span>03</span><strong>DATA & TOOLS</strong><p>PostgreSQL · SQLite · Git · GitHub · Linux</p></div><div><span>04</span><strong>PLATFORMS</strong><p>Vercel · Render · Telegram · Figma</p></div></div>
+      </section>
 
-        // Fallback functionality for the video
-        const video = document.getElementById('myVideo');
-        const fallbackImage = document.getElementById('fallbackImage');
-
-        video.onerror = function() {
-            video.style.display = 'none';
-            fallbackImage.style.display = 'block';
-        };
-    </script>
+      <section class="contact-section section-pad" id="contact"><span class="section-kicker">04 — HAVE SOMETHING IN MIND?</span><h2>Let's make<br>something <span class="outline-word">useful.</span></h2><a class="contact-link" href="mailto:hello@allhaildahking.dev">Get in touch <span>↗</span></a><div class="contact-orbit"></div></section>
+    </main>
+    <footer class="footer"><a class="wordmark" href="#home"><span class="mark">A<span>.</span></span><span>ALLHAILDAHKING</span></a><div class="footer-links"><a href="https://github.com/Allhaildahking" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://instagram.com/allhaildahking.py" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://x.com/allhail_dahking" target="_blank" rel="noreferrer">X ↗</a></div><span class="copyright">© <span id="year"></span> ALLHAILDAHKING</span></footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('is-open', !open);
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false');
+    }));
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.project-card, .section-heading, .about-layout, .stack-list > div').forEach(el => {
+      el.classList.add('reveal'); observer.observe(el);
+    });
+  </script>
 </body>
 </html>
