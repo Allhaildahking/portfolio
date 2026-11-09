@@ -1,40 +1,78 @@
-# Allhaildahking Portfolio
+# ALLHAILDAHKING — Personal Portfolio
 
-A personal portfolio website built with HTML and CSS, with a small amount of inline JavaScript for page behavior.
+A personal profile and public build log by **Destiny Growrich** (@allhaildahking).
+
+The portfolio takes inspiration from the familiar three-column social timeline: a profile and navigation rail, a central feed for thoughts and project updates, and a sidebar for current interests and links. It is a personal platform, not a conventional résumé template.
+
+## Preview
 
 **Live site:** https://allhaildahking.github.io/portfolio/  
-**Maintainer:** [Allhaildahking](https://github.com/Allhaildahking)
+**Repository:** https://github.com/Allhaildahking/portfolio
 
-## About
+> The redesign is currently being developed on the `redesign/x-inspired-social` branch. The live site may continue to show the previous version until the changes are reviewed and merged into `main`.
 
-This repository contains an earlier version of my personal portfolio. It introduces my work and links to my social profiles through a simple static website.
+## What's inside
 
-## Project structure
+- Responsive, three-column desktop layout with a compact mobile experience.
+- Personal profile header for Destiny Growrich / @allhaildahking.
+- Timeline-style posts, project updates and build notes.
+- Project links for M.A.R.S., Trade Oracle, Market Radar, BabelLive and LoreLab.
+- Sidebar sections for current focus, interests, toolkit and social links.
+- Lightweight client-side search that filters visible timeline posts.
+- Accessible page landmarks, descriptive image text and reduced-motion support.
 
-- `index.html` — main landing page
-- `about.html` — profile/about page
-- `assets/` — stylesheets, images, and video assets referenced by the pages
+## Tech
 
-## Technology
-
-- HTML
-- CSS
+- HTML5
+- CSS3 (custom properties, Grid, Flexbox and responsive media queries)
 - Vanilla JavaScript
+- Google Fonts: Inter and DM Mono
+
+No framework, package manager or build step is required.
 
 ## Run locally
 
-No build step is required.
+1. Clone the repository:
 
-1. Clone the repository.
-2. Open `index.html` in a browser.
+   ```bash
+   git clone https://github.com/Allhaildahking/portfolio.git
+   cd portfolio
+   ```
 
-For a local development server, you can use the VS Code Live Server extension or any static file server.
+2. Open `index.html` in a browser, or start a local static server:
 
-## Status
+   ```bash
+   python -m http.server 8000
+   ```
 
-This is a legacy portfolio version and is not a showcase of my current full development stack. The repository is retained as part of my project history while my portfolio and developer profile continue to evolve.
+3. Visit http://localhost:8000.
 
-## Contact
+## Project structure
+
+```text
+.
+├── index.html
+├── about.html
+├── README.md
+└── assets/
+    ├── css/
+    │   └── style.css
+    ├── img/
+    └── video/
+```
+
+## Customization
+
+- Update profile copy, posts, project links and social URLs in `index.html`.
+- Adjust colors, spacing, layout and breakpoints in `assets/css/style.css`.
+- Replace the profile image at `assets/img/IMG1.jpeg` when a final avatar is ready.
+
+## Connect
 
 - GitHub: https://github.com/Allhaildahking
 - Instagram: https://instagram.com/allhaildahking.py
+- X: https://x.com/allhaildahking
+
+---
+
+Built with intention by **Destiny Growrich**.
