@@ -1332,3 +1332,162 @@ button,input {
  .timeline-footer{padding-bottom:25px}
 }
 @media(min-width:761px) and (max-width:1000px){.app-shell{grid-template-columns:72px minmax(0,680px);justify-content:center}.timeline{width:100%}}
+
+
+/* Final layout polish */
+@media (min-width: 1001px) {
+  .app-shell {
+    max-width: 1280px;
+    grid-template-columns: 250px minmax(0, 600px) 320px;
+    column-gap: 0;
+  }
+  .left-rail {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 0;
+  }
+  .timeline {
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  .right-rail {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .right-rail::-webkit-scrollbar { display: none; }
+}
+.feed-intro {
+  padding: 16px 18px 13px;
+}
+.feed-intro h1 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+.composer {
+  border-bottom: 1px solid var(--line);
+}
+.post {
+  transition: background .16s ease;
+}
+.post:hover {
+  background: #ffffff05;
+}
+.post-byline strong {
+  letter-spacing: -.015em;
+}
+.post-byline > span:not(.profile-mark) {
+  color: #717985;
+}
+.more {
+  cursor: default;
+  padding: 0 5px;
+  border-radius: 50%;
+}
+.more:hover {
+  background: #3988f71a;
+  color: var(--blue);
+}
+.post-actions {
+  align-items: center;
+  color: #717985;
+}
+.post-actions a {
+  min-height: 30px;
+  padding: 0 5px;
+  border-radius: 18px;
+  transition: color .16s ease, background .16s ease;
+}
+.post-actions a:hover {
+  color: var(--blue);
+  background: #3988f714;
+}
+.profile-page .cover {
+  height: 150px;
+  background:
+    radial-gradient(ellipse at 75% 35%, #1b3655 0, #101b2a 38%, #090c12 78%);
+}
+.profile-page .cover-symbol {
+  font-size: 76px;
+  opacity: .88;
+}
+.profile-page .profile-body {
+  position: relative;
+}
+.profile-page .avatar-large {
+  object-position: center 28%;
+  box-shadow: 0 0 0 1px #ffffff12;
+}
+.profile-page h2 {
+  line-height: 1.25;
+}
+.profile-page .bio {
+  max-width: 500px;
+  line-height: 1.65;
+}
+.profile-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #000000ed;
+  backdrop-filter: blur(14px);
+}
+.project-tile {
+  display: block;
+  color: inherit;
+}
+.tile-art {
+  isolation: isolate;
+}
+.tile-art:before,
+.tile-art:after {
+  pointer-events: none;
+}
+.tile-body h2 {
+  letter-spacing: -.035em;
+}
+.tile-body p {
+  min-height: 0;
+}
+.search-box input {
+  min-width: 0;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+@media (max-width: 1000px) and (min-width: 761px) {
+  .app-shell {
+    grid-template-columns: 72px minmax(0, 680px);
+    max-width: 752px;
+  }
+  .timeline {
+    max-width: 680px;
+  }
+}
+@media (max-width: 760px) {
+  .profile-page .cover {
+    height: 132px;
+  }
+  .profile-page .cover-symbol {
+    font-size: 64px;
+  }
+  .profile-tabs {
+    top: 54px;
+  }
+  .post-actions {
+    max-width: 100%;
+  }
+  .post-actions a {
+    gap: 5px;
+  }
+}
