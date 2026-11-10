@@ -57,11 +57,23 @@ const feed=document.querySelector("#news-feed"),title=document.querySelector("#s
 let active="top",stories=[];
 const esc=s=>String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function timeAgo(date){const n=Date.now()-new Date(date).getTime();if(!Number.isFinite(n)||n<0)return "Recently";const m=Math.floor(n/60000);if(m<60)return m+"m ago";const h=Math.floor(m/60);if(h<24)return h+"h ago";return Math.floor(h/24)+"d ago";}
+function cleanText(value){return String(value||"").replace(/<[^>]*>/g," ").replace(/&amp;/g,"&").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim();}
+function sourceAndTitle(raw){
+ const parts=String(raw||"").split(" - ");
+ if(parts.length>1)return {title:parts.slice(0,-1).join(" - "),source:parts[parts.length-1]};
+ return {title:String(raw||"").trim(),source:"Latest coverage"};
+}
 function render(){
  const q=search.value.trim().toLowerCase();
  const list=stories.filter(x=>(x.title+" "+x.description+" "+x.author).toLowerCase().includes(q));
  if(!list.length){feed.innerHTML='<div class="news-empty">No stories match that search. Try another phrase.</div>';return;}
- feed.innerHTML=list.map((x,i)=>'<article class="news-card"><div class="news-card-main"><div class="news-meta"><span>'+esc(x.author||"News source")+'</span><span>·</span><time>'+esc(timeAgo(x.pubDate))+'</time></div><a class="news-headline" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer">'+esc(x.title)+'</a><p>'+esc((x.description||"").replace(/<[^>]*>/g," ").replace(/\s+/g," ").slice(0,190))+'</p><a class="news-read" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer">Read story ↗</a></div>'+(x.thumbnail?'<a class="news-thumb" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer"><img src="'+esc(x.thumbnail)+'" alt="" loading="lazy"></a>':'')+'</article>').join("");
+ feed.innerHTML=list.map((x,i)=>{
+  const parsed=sourceAndTitle(x.title), summary=cleanText(x.description);
+  const excerpt=summary.toLowerCase().startsWith(parsed.title.toLowerCase())?"":summary.slice(0,210);
+  const source=cleanText(x.author)||parsed.source;
+  const visual=x.thumbnail?'<a class="news-visual" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer"><img src="'+esc(x.thumbnail)+'" alt="" loading="lazy"></a>':'<div class="news-visual news-visual-placeholder"><span>AHK</span><small>THE DAILY BRIEF</small><i></i></div>';
+  return '<article class="news-card '+(i===0?'news-card-featured':'')+'">'+visual+'<div class="news-card-main"><div class="news-meta"><span class="news-source">'+esc(source)+'</span><span class="news-dot"></span><time>'+esc(timeAgo(x.pubDate))+'</time><span class="news-category">'+esc(feeds[active][0])+'</span></div><a class="news-headline" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer">'+esc(parsed.title)+'</a>'+(excerpt?'<p>'+esc(excerpt.slice(0,i===0?250:150))+'</p>':'')+'<a class="news-read" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer">Read full story <span>↗</span></a></div></article>';
+ }).join("");
 }
 async function load(category){
  active=category;title.textContent=feeds[category][0];feed.innerHTML='<div class="news-loading"><span class="loading-pulse"></span>Loading '+feeds[category][0].toLowerCase()+' stories...</div>';
