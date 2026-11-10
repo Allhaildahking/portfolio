@@ -1545,3 +1545,54 @@ input:focus-visible {
 @keyframes news-spin{to{transform:rotate(360deg)}}
 .news-source-note{padding:14px 17px 20px;color:#687382;font-size:9px;line-height:1.6;border-top:1px solid var(--line)}
 @media(max-width:760px){.explore-page .explore-header{padding:17px 15px 13px}.explore-search{margin:12px 13px}.explore-tabs button{min-width:70px;padding:14px 8px}.explore-section-heading{padding:16px 14px 11px}.news-card{padding:14px;gap:10px}.news-thumb{width:88px;height:72px}.news-headline{font-size:13px}.news-card-main p{font-size:10px}}
+
+
+/* Explore news cards: editorial layout with clear visual hierarchy */
+.explore-page .explore-header{padding:25px 20px 19px;background:linear-gradient(135deg,#101722 0%,#08090b 72%)}
+.explore-page .explore-header h1{font-size:25px}
+.explore-page .explore-header p{font-size:12px;line-height:1.6}
+.explore-search{background:#11151c;border-color:#29313d;min-height:44px}
+.explore-tabs{position:sticky;top:0;z-index:6;background:#08090bf2;backdrop-filter:blur(16px)}
+.explore-tabs button{font-size:12px}
+.explore-section-heading{padding:22px 19px 15px}
+.explore-section-heading h2{font-size:19px}
+.news-feed{display:grid;gap:12px;padding:0 14px 16px}
+.news-card{display:flex;flex-direction:column;gap:0;min-width:0;padding:0;overflow:hidden;border:1px solid #252d39;border-radius:14px;background:linear-gradient(145deg,#111720,#0b0e13 75%);transition:border-color .18s,transform .18s,background .18s}
+.news-card:hover{background:#121923;border-color:#40536b;transform:translateY(-2px)}
+.news-visual{height:150px;width:100%;display:block;position:relative;overflow:hidden;background:#111a27}
+.news-visual img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.news-card:hover .news-visual img{transform:scale(1.025)}
+.news-visual-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;background:radial-gradient(ellipse at 50% 120%,#23466b 0%,#111d2c 42%,#0b1018 78%)}
+.news-visual-placeholder:before,.news-visual-placeholder:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #83b8ef35;border-radius:50%}
+.news-visual-placeholder:after{width:240px;height:240px;border-style:dashed;opacity:.65}
+.news-visual-placeholder span,.news-visual-placeholder small{position:relative;z-index:1}
+.news-visual-placeholder span{font:800 38px Inter,sans-serif;letter-spacing:-.1em;color:#e2efff}
+.news-visual-placeholder small{font:8px var(--mono);letter-spacing:.2em;color:#91afd2}
+.news-card-main{padding:15px 16px 16px;min-width:0}
+.news-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:10px;font-size:9px}
+.news-source{color:#a9c9f2;font-weight:700}
+.news-dot{width:3px;height:3px;border-radius:50%;background:#697586}
+.news-category{margin-left:auto;padding:4px 7px;border:1px solid #2c3c50;border-radius:20px;color:#91afd2;font-size:8px;letter-spacing:.04em}
+.news-headline{font-size:16px;line-height:1.4;font-weight:750;letter-spacing:-.035em}
+.news-card-main p{font-size:11px;line-height:1.7;color:#9da8b7;margin:9px 0 10px}
+.news-read{display:inline-flex;align-items:center;gap:5px;margin-top:9px;padding-top:10px;border-top:1px solid #252d39;color:#8dbcf5;font-size:10px}
+.news-read span{font-size:13px}
+.news-card-featured .news-visual{height:190px}
+.news-card-featured .news-headline{font-size:19px;line-height:1.38}
+.news-card-featured .news-card-main{padding:17px 18px 18px}
+.news-source-note{margin:0 14px 15px;padding:13px 4px;border-top:1px solid var(--line)}
+.news-loading,.news-empty{border:1px dashed #303b4a;border-radius:13px;background:#0d1117}
+@media(max-width:760px){
+ .explore-page .explore-header{padding:20px 16px 16px}
+ .explore-page .explore-header h1{font-size:23px}
+ .explore-search{margin:12px 13px}
+ .explore-tabs button{min-width:70px;padding:14px 8px}
+ .explore-section-heading{padding:18px 15px 13px}
+ .news-feed{padding:0 11px 14px;gap:10px}
+ .news-visual{height:135px}
+ .news-card-featured .news-visual{height:160px}
+ .news-card-main{padding:13px}
+ .news-headline{font-size:14px}
+ .news-card-featured .news-headline{font-size:17px}
+ .news-card-main p{font-size:10px}
+}
