@@ -1,8 +1,8 @@
 # ALLHAILDAHKING — Personal Portfolio
 
-A personal profile and public build log by **Destiny Growrich** (@allhaildahking).
+A small corner of the internet for **Destiny Growrich** (@allhaildahking): what I'm learning, what I'm making, and the projects I'm working through.
 
-The portfolio takes inspiration from the familiar three-column social timeline: a profile and navigation rail, a central feed for thoughts and project updates, and a sidebar for current interests and links. It is a personal platform, not a conventional résumé template.
+The layout borrows the rhythm of a social timeline, but the content is mine: project notes, work in progress, things I'm learning, and a few ways to get in touch. It's meant to feel more like a personal site than an online résumé.
 
 ## Preview
 
@@ -76,4 +76,4 @@ No framework, package manager or build step is required.
 
 ---
 
-Built with intention by **Destiny Growrich**.
+Made by **Destiny Growrich**.
