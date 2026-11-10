@@ -1120,3 +1120,65 @@ button,input {
     font-size:12px
   }
 }
+
+
+/* Shared X-inspired interior pages */
+.interior-timeline{min-height:100vh}
+.page-heading{padding:28px 22px 25px;border-bottom:1px solid var(--line)}
+.page-heading .eyebrow,.section-kicker,.card-index{font:9px var(--mono);letter-spacing:.13em;color:var(--blue)}
+.page-heading h1{font-size:32px;letter-spacing:-.06em;margin:13px 0 10px}
+.page-lead{font-size:14px;line-height:1.8;color:#b8c0cb;max-width:520px;margin:0}
+.page-lead strong{color:var(--text)}
+.page-section{padding:24px 22px;border-bottom:1px solid var(--line)}
+.section-kicker{margin-bottom:15px}
+.page-copy{font-size:13px;line-height:1.9;color:#c1c7d0;max-width:540px}
+.inline-link{display:inline-flex;gap:10px;align-items:center;color:var(--blue);font-size:12px;font-weight:700;margin-top:8px}
+.inline-link:hover{color:#80b6ff}
+.about-profile{align-items:center;padding:22px;border-bottom:1px solid var(--line)}
+.about-profile .avatar-large{margin:0;width:88px;height:88px;border:2px solid var(--line)}
+.about-profile h2{font-size:17px;margin:0 0 4px}
+.about-profile p:not(.handle){font-size:12px;line-height:1.8;color:#c1c7d0;margin:13px 0 0}
+.about-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.about-grid .side-card{margin:0;min-height:150px}
+.about-grid h3{font-size:14px;margin:14px 0 7px}
+.about-grid p{font-size:11px;line-height:1.7;color:var(--muted);margin:0}
+.projects-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:18px}
+.project-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0e1014;min-width:0}
+.project-card-top{display:flex;justify-content:space-between;padding:12px 14px;color:var(--dim);font:8px var(--mono);letter-spacing:.1em;border-bottom:1px solid var(--line)}
+.project-art{height:125px;display:grid;place-items:center;background:radial-gradient(circle at center,#1b3551,#0d131d 72%);position:relative;overflow:hidden}
+.project-art:before,.project-art:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #6594c633;border-radius:50%}
+.project-art:after{width:225px;height:225px;border-style:dashed;opacity:.5}
+.project-art span{font:700 28px var(--mono);color:#d4e5fa;position:relative;z-index:1;letter-spacing:.08em}
+.project-card.trade .project-art{background:radial-gradient(circle,#382c1c,#15120e 75%)}
+.project-card.radar .project-art{background:radial-gradient(circle,#183b2b,#0d1511 75%)}
+.project-card.babel .project-art{background:radial-gradient(circle,#3b2d20,#17120e 75%)}
+.project-card.lore .project-art{background:radial-gradient(circle,#352b43,#120f17 75%)}
+.project-card-body{padding:15px}
+.project-card-body .eyebrow{font-size:8px}
+.project-card-body h2{font-size:18px;margin:8px 0}
+.project-card-body>p:not(.eyebrow){font-size:11px;line-height:1.75;color:var(--muted);min-height:58px;margin:0}
+.contact-list{padding:14px 18px}
+.contact-row{display:flex;align-items:center;gap:15px;padding:18px 4px;border-bottom:1px solid var(--line)}
+.contact-row:last-child{border-bottom:0}
+.contact-symbol{width:44px;height:44px;border:1px solid #303946;background:#141a22;border-radius:12px;display:grid;place-items:center;font-size:20px;color:#a9c9f2;flex:none}
+.contact-row>span:nth-child(2){display:grid;gap:4px;min-width:0}
+.contact-row small{font:8px var(--mono);letter-spacing:.1em;color:var(--dim)}
+.contact-row strong{font-size:15px}
+.contact-row em{font-style:normal;font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+.contact-row>b{margin-left:auto;color:var(--blue)}
+.contact-row:hover strong{color:var(--blue)}
+.contact-note{margin:0 18px 22px}
+.contact-note p{font-size:12px;line-height:1.8;color:var(--muted);margin:0}
+@media(max-width:760px){
+ .page-heading{padding:24px 16px}
+ .page-heading h1{font-size:27px}
+ .page-lead{font-size:13px}
+ .about-profile{padding:17px 15px;align-items:flex-start}
+ .about-profile .avatar-large{width:66px;height:66px}
+ .about-grid{grid-template-columns:1fr}
+ .about-grid .side-card{min-height:0}
+ .projects-grid{grid-template-columns:1fr;padding:13px}
+ .project-art{height:115px}
+ .contact-list{padding:10px 14px}
+ .contact-note{margin:0 14px 18px}
+}
