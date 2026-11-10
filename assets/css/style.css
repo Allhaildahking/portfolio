@@ -321,7 +321,7 @@ button,input {
   margin:8px 0 3px
 }
 
-.verified {
+.profile-mark {
   color:var(--blue);
   font-size:13px;
   margin-left:2px
@@ -444,13 +444,13 @@ button,input {
   white-space:nowrap
 }
 
-.post-byline>span:not(.verified) {
+.post-byline>span:not(.profile-mark) {
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis
 }
 
-.post-byline .verified {
+.post-byline .profile-mark {
   font-size:10px
 }
 
@@ -1075,7 +1075,7 @@ button,input {
     font-size:10px
   }
 
-  .post-byline>span:not(.verified) {
+  .post-byline>span:not(.profile-mark) {
     max-width:125px
   }
 
