@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000000"><meta name="description" content="Explore the latest AI, technology, and financial news on Allhaildahking.">
+<title>Explore / Destiny Growrich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/style.css"><link rel="icon" href="./assets/img/1022540622_1794309018437442.jpg">
+</head><body><div class="app-shell">
+<aside class="left-rail">
+<a class="brand" href="./index.html" aria-label="Allhaildahking"><span class="brand-mark">A<span>.</span></span></a>
+<nav class="main-nav" aria-label="Main navigation">
+<a class="nav-item" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+<a class="nav-item active" href="./explore.html"><span class="nav-icon">⌕</span><span>Explore</span></a>
+<a class="nav-item" href="./projects.html"><span class="nav-icon">▤</span><span>Projects</span></a>
+<a class="nav-item" href="./about.html"><span class="nav-icon">◎</span><span>About</span></a>
+<a class="nav-item" href="./contact.html"><span class="nav-icon">✉</span><span>Contact</span></a>
+<a class="nav-item" href="https://github.com/Allhaildahking" target="_blank" rel="noreferrer"><span class="nav-icon">⌘</span><span>GitHub</span></a>
+</nav><a class="post-button" href="./contact.html">Message me <span>↗</span></a>
+<a class="mini-account" href="./about.html"><img src="./assets/img/1022540622_1794309018437442.jpg" alt=""><span><strong>Destiny Growrich</strong><small>@allhaildahking</small></span><b>···</b></a>
+</aside>
+<main class="timeline explore-page">
+<header class="mobile-top"><a class="brand" href="./index.html"><span class="brand-mark">A<span>.</span></span></a><strong>ALLHAILDAHKING</strong><a href="./about.html"><img src="./assets/img/1022540622_1794309018437442.jpg" alt="Hooded avatar"></a></header>
+<nav class="mobile-bottom" aria-label="Mobile navigation"><a href="./index.html">⌂<small>Home</small></a><a href="./explore.html">⌕<small>Explore</small></a><a href="./projects.html">▤<small>Projects</small></a><a href="./about.html">◎<small>Profile</small></a><a href="./contact.html">✉<small>Contact</small></a></nav>
+<header class="explore-header"><h1>Explore</h1><p>What's happening in AI, tech, and the markets.</p></header>
+<div class="explore-search"><span>⌕</span><input id="news-search" type="search" placeholder="Search headlines and stories..." aria-label="Search news"></div>
+<nav class="explore-tabs" aria-label="News categories">
+<button class="active" data-category="top">For you</button><button data-category="ai">AI</button><button data-category="tech">Tech</button><button data-category="finance">Finance</button><button data-category="crypto">Crypto</button>
+</nav>
+<section class="explore-content">
+<div class="explore-section-heading"><div><span class="eyebrow">THE LATEST</span><h2 id="section-title">Top stories</h2></div><span class="live-indicator"><i></i> LIVE FEED</span></div>
+<div id="news-feed" class="news-feed" aria-live="polite"><div class="news-loading"><span class="loading-pulse"></span>Loading the latest stories...</div></div>
+<div class="news-source-note">Headlines are collected from Google News RSS. Stories open at their original publishers. This is a news reader, not a trading signal.</div>
+</section>
+<footer class="timeline-footer">© 2026 ALLHAILDAHKING <span>MADE BY DESTINY.</span></footer>
+</main>
+<aside class="right-rail">
+<div class="search-box"><span>⌕</span><input id="side-search" type="search" placeholder="Search this feed" aria-label="Search this feed"></div>
+<section class="side-card"><div class="side-title">YOUR DAILY BRIEFING</div>
+<a class="trend" href="https://news.google.com/search?q=artificial%20intelligence" target="_blank" rel="noreferrer"><small>AI WATCH</small><strong>Artificial intelligence</strong><span>Models, research, and companies ↗</span></a>
+<a class="trend" href="https://news.google.com/search?q=technology" target="_blank" rel="noreferrer"><small>TECH WATCH</small><strong>Technology</strong><span>Products, startups, and innovation ↗</span></a>
+<a class="trend" href="https://news.google.com/search?q=financial%20markets" target="_blank" rel="noreferrer"><small>MARKET WATCH</small><strong>Financial markets</strong><span>Business, stocks, and the economy ↗</span></a>
+<a class="trend" href="https://news.google.com/search?q=cryptocurrency" target="_blank" rel="noreferrer"><small>CRYPTO WATCH</small><strong>Digital assets</strong><span>Crypto industry and market news ↗</span></a>
+</section>
+<section class="side-card connect-card"><div class="side-title">ELSEWHERE</div><a href="https://github.com/Allhaildahking" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="https://x.com/allhaildahking" target="_blank" rel="noreferrer">X <span>↗</span></a><a href="https://instagram.com/allhaildahking.py" target="_blank" rel="noreferrer">Instagram <span>↗</span></a></section>
+<div class="right-footer">Terms · Privacy · © 2026<br><strong>ALLHAILDAHKING</strong></div>
+</aside></div>
+<script>
+const feeds={
+ top:["AI and technology","artificial intelligence OR technology OR financial markets"],
+ ai:["Artificial intelligence","artificial intelligence OR AI models OR AI research"],
+ tech:["Technology","technology industry OR startups OR gadgets"],
+ finance:["Financial markets","financial markets OR stocks OR economy OR business"],
+ crypto:["Crypto","cryptocurrency OR Bitcoin OR Ethereum"]
+};
+const feed=document.querySelector("#news-feed"),title=document.querySelector("#section-title"),search=document.querySelector("#news-search");
+let active="top",stories=[];
+const esc=s=>String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function timeAgo(date){const n=Date.now()-new Date(date).getTime();if(!Number.isFinite(n)||n<0)return "Recently";const m=Math.floor(n/60000);if(m<60)return m+"m ago";const h=Math.floor(m/60);if(h<24)return h+"h ago";return Math.floor(h/24)+"d ago";}
+function render(){
+ const q=search.value.trim().toLowerCase();
+ const list=stories.filter(x=>(x.title+" "+x.description+" "+x.author).toLowerCase().includes(q));
+ if(!list.length){feed.innerHTML='<div class="news-empty">No stories match that search. Try another phrase.</div>';return;}
+ feed.innerHTML=list.map((x,i)=>'<article class="news-card"><div class="news-card-main"><div class="news-meta"><span>'+esc(x.author||"News source")+'</span><span>·</span><time>'+esc(timeAgo(x.pubDate))+'</time></div><a class="news-headline" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer">'+esc(x.title)+'</a><p>'+esc((x.description||"").replace(/<[^>]*>/g," ").replace(/\s+/g," ").slice(0,190))+'</p><a class="news-read" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer">Read story ↗</a></div>'+(x.thumbnail?'<a class="news-thumb" href="'+esc(x.link)+'" target="_blank" rel="noopener noreferrer"><img src="'+esc(x.thumbnail)+'" alt="" loading="lazy"></a>':'')+'</article>').join("");
+}
+async function load(category){
+ active=category;title.textContent=feeds[category][0];feed.innerHTML='<div class="news-loading"><span class="loading-pulse"></span>Loading '+feeds[category][0].toLowerCase()+' stories...</div>';
+ document.querySelectorAll(".explore-tabs button").forEach(b=>b.classList.toggle("active",b.dataset.category===category));
+ const query=encodeURIComponent(feeds[category][1]+" when:7d");
+ const rss="https://news.google.com/rss/search?q="+query+"&hl=en-US&gl=US&ceid=US:en";
+ try{
+  const response=await fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(rss));
+  if(!response.ok)throw new Error("Feed request failed");
+  const data=await response.json();if(data.status!=="ok"||!Array.isArray(data.items))throw new Error("Feed unavailable");
+  stories=data.items.map(item=>({title:item.title,link:item.link,description:item.description,author:item.author,pubDate:item.pubDate,thumbnail:item.thumbnail||""}));
+  render();
+ }catch(e){
+  stories=[];feed.innerHTML='<div class="news-empty"><strong>Could not load the live feed right now.</strong><p>The news source may be temporarily unavailable. You can still open the latest '+esc(feeds[category][0].toLowerCase())+' headlines directly.</p><a class="news-read" href="https://news.google.com/search?q='+encodeURIComponent(feeds[category][1])+'" target="_blank" rel="noopener noreferrer">Open latest headlines ↗</a></div>';
+ }
+}
+document.querySelectorAll(".explore-tabs button").forEach(b=>b.addEventListener("click",()=>load(b.dataset.category)));
+search.addEventListener("input",render);
+document.querySelector("#side-search").addEventListener("keydown",e=>{if(e.key==="Enter"){search.value=e.target.value;render();}});
+load("top");
+</script></body></html>
