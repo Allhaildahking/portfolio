@@ -9,7 +9,7 @@ The portfolio takes inspiration from the familiar three-column social timeline: 
 **Live site:** https://allhaildahking.github.io/portfolio/  
 **Repository:** https://github.com/Allhaildahking/portfolio
 
-> The redesign is currently being developed on the `redesign/x-inspired-social` branch. The live site may continue to show the previous version until the changes are reviewed and merged into `main`.
+> The redesign has been merged into `main`. GitHub Pages publishes the site from the repository's configured Pages source; allow a few minutes for the latest commit to appear.
 
 ## What's inside
 
@@ -18,7 +18,7 @@ The portfolio takes inspiration from the familiar three-column social timeline: 
 - Timeline-style posts, project updates and build notes.
 - Project links for M.A.R.S., Trade Oracle, Market Radar, BabelLive and LoreLab.
 - Sidebar sections for current focus, interests, toolkit and social links.
-- Lightweight client-side search that filters visible timeline posts.
+- Lightweight client-side search on desktop and mobile, including a no-results message.
 - Accessible page landmarks, descriptive image text and reduced-motion support.
 
 ## Tech
@@ -58,6 +58,7 @@ No framework, package manager or build step is required.
     ├── css/
     │   └── style.css
     ├── img/
+    │   └── IMG1.jpeg
     └── video/
 ```
 
