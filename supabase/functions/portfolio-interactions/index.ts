@@ -95,6 +95,15 @@ Deno.serve(async (request) => {
           comments: recentComments || [],
         };
       }
+      const { data: activity, error: activityError } = await db
+        .from("portfolio_comments")
+        .select("post_id, display_name, body, created_at")
+        .in("post_id", ids)
+        .eq("status", "approved")
+        .order("created_at", { ascending: false })
+        .limit(6);
+      if (activityError) throw activityError;
+      result.activity = activity || [];
       return json(result);
     }
 
