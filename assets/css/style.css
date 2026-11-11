@@ -1625,26 +1625,34 @@ body.entry-locked { overflow: hidden; }
   isolation: isolate;
 }
 .entry-screen[hidden] { display: none; }
-.entry-content { position: relative; z-index: 2; width: min(100%, 520px); text-align: center; }
+.entry-content {
+  position: relative; z-index: 2; width: min(100%, 520px);
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
 .entry-avatar {
-  display: block; width: 112px; height: 112px; margin: 0 auto 25px;
+  display: block; width: 108px; height: 108px; margin: 0 0 18px;
   object-fit: cover; object-position: center; border-radius: 50%;
   border: 1px solid #7895b966; padding: 4px; background: #ffffff0a;
   box-shadow: 0 0 0 8px #8dbcf50a, 0 16px 55px #0008;
 }
-.entry-content h1 { margin: 0; color: #f1f5fb; font: 800 clamp(27px, 6.5vw, 43px) Inter, sans-serif; letter-spacing: -.065em; }
-.entry-username { margin: 9px 0 0; color: #8492a5; font-size: 13px; letter-spacing: .02em; }
-.entry-tagline { margin: 20px 0 0; color: #8dbcf5; font: 700 11px var(--mono); letter-spacing: .2em; text-transform: uppercase; }
+.entry-content h1 {
+  max-width: 100%; margin: 0; color: #f1f5fb;
+  font: 800 clamp(24px, 6vw, 40px) Inter, sans-serif;
+  letter-spacing: -.065em; line-height: 1.12; white-space: nowrap;
+}
+.entry-username { margin: 6px 0 0; color: #8492a5; font-size: 12px; letter-spacing: .02em; }
+.entry-tagline { margin: 16px 0 0; color: #8dbcf5; font: 700 10px var(--mono); letter-spacing: .2em; text-transform: uppercase; }
 .entry-button {
   display: inline-flex; align-items: center; justify-content: center; gap: 22px;
-  min-width: 174px; min-height: 48px; margin-top: 42px; padding: 0 22px;
+  min-width: 174px; min-height: 46px; margin-top: 28px; padding: 0 22px;
   border: 1px solid #5b91cc; border-radius: 28px; color: #fff; background: #246dc5;
   font: 700 12px Inter, sans-serif; cursor: pointer; box-shadow: 0 10px 38px #246dc533;
   transition: transform .2s ease, background .2s ease;
 }
 .entry-button:hover { transform: translateY(-2px); background: #2e7cdb; }
 .entry-button span { font-size: 17px; }
-.entry-footnote { margin: 46px 0 0; color: #657286; font: 8px var(--mono); letter-spacing: .16em; }
+.entry-footnote { margin: 25px 0 0; color: #657286; font: 8px var(--mono); letter-spacing: .16em; }
 .entry-footnote span { padding: 0 7px; color: #3988f7; }
 .entry-orbit {
   position: absolute; z-index: 1; left: 50%; top: 46%; width: min(76vw, 510px);
