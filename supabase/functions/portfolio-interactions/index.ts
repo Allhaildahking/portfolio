@@ -67,9 +67,11 @@ Deno.serve(async (request) => {
     };
 
     if (action === "summary") {
-      const ids = Array.isArray(payload.postIds)
-        ? payload.postIds.filter((id: unknown) => typeof id === "string" && allowedPostIds.has(id)).slice(0, 30)
+      const ids: string[] = Array.isArray(payload.postIds)
+        ? payload.postIds.filter((id: unknown): id is string => typeof id === "string" && allowedPostIds.has(id)).slice(0, 30)
         : [];
+      const summaryAllowed = await consumeLimit("summary", 120, 3600);
+      if (!summaryAllowed) return json({ ok: false, error: "Rate limit reached." }, 429);
       const result: Record<string, unknown> = { ok: true, posts: {} };
       for (const id of ids) {
         const [likes, comments, views, mine] = await Promise.all([
@@ -110,10 +112,11 @@ Deno.serve(async (request) => {
     if (action === "view") {
       const allowed = await consumeLimit("view", 120, 3600);
       if (!allowed) return json({ ok: false, error: "Rate limit reached." }, 429);
-      await db.from("portfolio_views").upsert(
+      const { error } = await db.from("portfolio_views").upsert(
         { post_id: postId, visitor_hash: visitorHash, ip_hash: ipHash },
         { onConflict: "post_id,visitor_hash", ignoreDuplicates: true },
       );
+      if (error) throw error;
       return json({ ok: true });
     }
 
