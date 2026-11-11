@@ -33,8 +33,8 @@
           const title = node.querySelector("h1,h2,h3,strong")?.textContent?.trim() || page.label;
           const text = getText(node);
           const anchor = node.matches("a[href]") ? node : node.querySelector("a[href]");
-          let href = anchor?.getAttribute("href") || page.path;
-          if (/^https?:/i.test(href)) href = page.path;
+          let href = page.label === "POST" ? page.path : (anchor?.getAttribute("href") || page.path);
+          if (/^https?:/i.test(href) && page.label !== "PROJECT" && page.label !== "CONTACT") href = page.path;
           return { title, text, href, page: page.path, label: page.label };
         });
       } catch (error) { return []; }
