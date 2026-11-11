@@ -17,6 +17,6 @@
 
   const config = document.createElement("script");
   config.src = "./assets/js/supabase-config.js";
-  config.onload = () => import("./interactions.js").catch(() => {});
+  config.onload = () => import("./assets/js/interactions.js").catch(() => {});
   document.head.append(config);
 })();
