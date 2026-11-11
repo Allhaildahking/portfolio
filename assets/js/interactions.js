@@ -67,9 +67,12 @@
 
   const renderSummary = (summary, ui) => {
     const data = summary.posts?.[ui.postId] || {};
-    ui.likeButton.textContent = `♥ ${Number(data.likes || 0)}`;
-    ui.likeButton.classList.toggle("is-liked", Boolean(data.likedByMe));
-    ui.likeButton.setAttribute("aria-pressed", String(Boolean(data.likedByMe)));
+    ui.likeCount = Number(data.likes || 0);
+    ui.liked = Boolean(data.likedByMe);
+
+    ui.likeButton.textContent = `♥ ${ui.likeCount}`;
+    ui.likeButton.classList.toggle("is-liked", ui.liked);
+    ui.likeButton.setAttribute("aria-pressed", String(ui.liked));
     ui.commentButton.textContent = `Comments ${Number(data.commentCount || 0)}`;
     ui.viewCount.textContent = `${Number(data.views || 0)} views`;
     renderComments(ui.commentList, data.comments || []);
@@ -120,15 +123,46 @@
     else post.querySelector(".post-content")?.append(actions);
     actions.insertAdjacentElement("afterend", commentPanel);
 
-    const ui = { postId, likeButton, commentButton, viewCount, commentList, status, submit };
+    const ui = {
+      postId,
+      likeButton,
+      commentButton,
+      viewCount,
+      commentList,
+      status,
+      submit,
+      likeCount: 0,
+      liked: false
+    };
     interfaces.push(ui);
 
     likeButton.addEventListener("click", async () => {
+      const previousCount = ui.likeCount;
+      const previousLiked = ui.liked;
+
+      ui.liked = !previousLiked;
+      ui.likeCount = Math.max(
+        0,
+        previousCount + (ui.liked ? 1 : -1)
+      );
+
+      likeButton.textContent = `♥ ${ui.likeCount}`;
+      likeButton.classList.toggle("is-liked", ui.liked);
+      likeButton.setAttribute("aria-pressed", String(ui.liked));
       likeButton.disabled = true;
+      ui.status.textContent = "";
+
       try {
         await callFunction({ action: "like", postId });
-        await refresh();
+        refresh();
       } catch (error) {
+        ui.likeCount = previousCount;
+        ui.liked = previousLiked;
+
+        likeButton.textContent = `♥ ${ui.likeCount}`;
+        likeButton.classList.toggle("is-liked", ui.liked);
+        likeButton.setAttribute("aria-pressed", String(ui.liked));
+
         ui.status.textContent = "Couldn't save your like. Please try again.";
       } finally {
         likeButton.disabled = false;
