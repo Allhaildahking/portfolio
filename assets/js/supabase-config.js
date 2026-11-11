@@ -1,7 +1,7 @@
 /*
  * Supabase project settings.
- * Add your project's Project URL and anon/public key here after creating it.
- * Never put the service_role key in this file or anywhere in the frontend.
+ * The publishable key is intended for browser use.
+ * Never put a secret/service_role key in this file or anywhere in the frontend.
  */
-window.AHK_SUPABASE_URL = "";
-window.AHK_SUPABASE_ANON_KEY = "";
+window.AHK_SUPABASE_URL = "https://gahkllnaeuwojzukzrwwv.supabase.co";
+window.AHK_SUPABASE_ANON_KEY = "sb_publishable_3ZCFMR1Q9n5Tu0m9oWz6AQ_CJsWPKce";
