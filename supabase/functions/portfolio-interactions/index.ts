@@ -43,7 +43,7 @@ Deno.serve(async (request) => {
     ));
 
     if (!/^[0-9a-f-]{36}$/i.test(visitorId)) return json({ ok: false, error: "Invalid visitor." }, 400);
-    if (action !== "summary" && !allowedPostIds.has(postId)) {
+    if (action !== "summary" && action !== "views" && !allowedPostIds.has(postId)) {
       return json({ ok: false, error: "Unknown post." }, 400);
     }
 
