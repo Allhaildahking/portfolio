@@ -124,8 +124,8 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     likeButton.addEventListener("click", async () => {
       likeButton.disabled = true;
       try {
-        const result = await callFunction({ action: "like", postId });
-        renderSummary(result, ui);
+        await callFunction({ action: "like", postId });
+        await refresh();
       } catch (error) {
         ui.status.textContent = "Couldn't save your like. Please try again.";
       } finally {
@@ -163,6 +163,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     try {
       const summary = await callFunction({ action: "summary", postIds });
       interfaces.forEach((ui) => renderSummary(summary, ui));
+      if (window.ahkRenderActivity) window.ahkRenderActivity(summary.activity || []);
     } catch (error) {
       interfaces.forEach((ui) => {
         ui.status.textContent = "Interactions are temporarily unavailable.";
@@ -173,6 +174,29 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   const recordViews = async () => {
     await Promise.allSettled(postIds.map((postId) => callFunction({ action: "view", postId })));
   };
+
+  const rightRail = document.querySelector(".right-rail");
+  if (rightRail) {
+    const activityCard = make("section", "side-card interaction-activity");
+    activityCard.append(make("div", "side-title", "RECENT ACTIVITY"));
+    const activityList = make("div", "activity-list");
+    activityCard.append(activityList);
+    const footer = rightRail.querySelector(".right-footer");
+    if (footer) rightRail.insertBefore(activityCard, footer);
+    else rightRail.append(activityCard);
+    window.ahkRenderActivity = (items) => {
+      activityList.replaceChildren();
+      if (!items?.length) {
+        activityList.append(make("p", "activity-empty", "New conversations will show up here."));
+        return;
+      }
+      items.forEach((item) => {
+        const row = make("article", "activity-item");
+        row.append(make("strong", "", item.display_name), make("p", "", item.body));
+        activityList.append(row);
+      });
+    };
+  }
 
   recordViews().finally(refresh);
 })();
