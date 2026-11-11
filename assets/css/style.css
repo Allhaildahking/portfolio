@@ -1626,16 +1626,15 @@ body.entry-locked { overflow: hidden; }
 }
 .entry-screen[hidden] { display: none; }
 .entry-content { position: relative; z-index: 2; width: min(100%, 520px); text-align: center; }
-.entry-mark {
-  display: inline-grid; place-items: center; width: 58px; height: 58px; margin-bottom: 34px;
-  border: 1px solid #52647a66; border-radius: 18px; color: #eef5ff;
-  font: 800 29px Inter, sans-serif; letter-spacing: -.13em; background: #ffffff08;
+.entry-avatar {
+  display: block; width: 112px; height: 112px; margin: 0 auto 25px;
+  object-fit: cover; object-position: center; border-radius: 50%;
+  border: 1px solid #7895b966; padding: 4px; background: #ffffff0a;
+  box-shadow: 0 0 0 8px #8dbcf50a, 0 16px 55px #0008;
 }
-.entry-mark span { color: var(--blue); }
-.entry-kicker { margin: 0 0 18px; color: #8195af; font: 9px var(--mono); letter-spacing: .2em; }
-.entry-content h1 { margin: 0; color: #f1f5fb; font: 800 clamp(29px, 7vw, 54px) Inter, sans-serif; letter-spacing: -.075em; }
-.entry-tagline { margin: 15px 0 0; color: #aeb8c7; font-size: 14px; letter-spacing: .02em; }
-.entry-motto { display: block; margin-top: 18px; color: #8dbcf5; font: 800 9px var(--mono); letter-spacing: .25em; }
+.entry-content h1 { margin: 0; color: #f1f5fb; font: 800 clamp(27px, 6.5vw, 43px) Inter, sans-serif; letter-spacing: -.065em; }
+.entry-username { margin: 9px 0 0; color: #8492a5; font-size: 13px; letter-spacing: .02em; }
+.entry-tagline { margin: 20px 0 0; color: #8dbcf5; font: 700 11px var(--mono); letter-spacing: .2em; text-transform: uppercase; }
 .entry-button {
   display: inline-flex; align-items: center; justify-content: center; gap: 22px;
   min-width: 174px; min-height: 48px; margin-top: 42px; padding: 0 22px;
