@@ -72,48 +72,28 @@ Deno.serve(async (request) => {
         : [];
       const summaryAllowed = await consumeLimit("summary", 120, 3600);
       if (!summaryAllowed) return json({ ok: false, error: "Rate limit reached." }, 429);
-      const result: Record<string, unknown> = { ok: true, posts: {} };
-      for (const id of ids) {
-        const [likes, comments, views, mine] = await Promise.all([
-          db.from("portfolio_likes").select("id", { count: "exact", head: true }).eq("post_id", id),
-          db.from("portfolio_comments").select("id", { count: "exact", head: true }).eq("post_id", id).eq("status", "approved"),
-          db.from("portfolio_views").select("id", { count: "exact", head: true }).eq("post_id", id),
-          db.from("portfolio_likes").select("id").eq("post_id", id).eq("visitor_hash", visitorHash).maybeSingle(),
-        ]);
-        if (likes.error || comments.error || views.error || mine.error) throw new Error("Could not load post activity.");
-        const { data: recentComments, error: commentsError } = await db
-          .from("portfolio_comments")
-          .select("display_name, body, created_at")
-          .eq("post_id", id)
-          .eq("status", "approved")
-          .order("created_at", { ascending: false })
-          .limit(5);
-        if (commentsError) throw commentsError;
-        (result.posts as Record<string, unknown>)[id] = {
-          likes: likes.count || 0,
-          commentCount: comments.count || 0,
-          views: views.count || 0,
-          likedByMe: Boolean(mine.data),
-          comments: recentComments || [],
-        };
-      }
-      const { data: activity, error: activityError } = await db
-        .from("portfolio_comments")
-        .select("post_id, display_name, body, created_at")
-        .in("post_id", ids)
-        .eq("status", "approved")
-        .order("created_at", { ascending: false })
-        .limit(6);
-      if (activityError) throw activityError;
-      result.activity = activity || [];
-      return json(result);
+      const { data, error } = await db.rpc("get_portfolio_summary", {
+        p_post_ids: ids,
+        p_visitor_hash: visitorHash,
+      });
+      if (error) throw error;
+      return json({ ok: true, ...(data || { posts: {}, activity: [] }) });
     }
 
-    if (action === "view") {
-      const allowed = await consumeLimit("view", 120, 3600);
+    if (action === "views") {
+      const ids: string[] = Array.isArray(payload.postIds)
+        ? payload.postIds.filter((id: unknown): id is string => typeof id === "string" && allowedPostIds.has(id)).slice(0, 30)
+        : [];
+      if (!ids.length) return json({ ok: true });
+      const allowed = await consumeLimit("views", 1200, 3600);
       if (!allowed) return json({ ok: false, error: "Rate limit reached." }, 429);
+      const rows = ids.map((id) => ({
+        post_id: id,
+        visitor_hash: visitorHash,
+        ip_hash: ipHash,
+      }));
       const { error } = await db.from("portfolio_views").upsert(
-        { post_id: postId, visitor_hash: visitorHash, ip_hash: ipHash },
+        rows,
         { onConflict: "post_id,visitor_hash", ignoreDuplicates: true },
       );
       if (error) throw error;
