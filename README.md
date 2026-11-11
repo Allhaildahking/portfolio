@@ -28,6 +28,7 @@ There are no visitor accounts, passwords, reposts, bookmarks, or visitor notific
 2. Open the SQL Editor and run `supabase/migrations/202611110001_portfolio_interactions.sql`.
 3. Deploy the Edge Function:
    ```bash
+   supabase link --project-ref YOUR_PROJECT_REF
    supabase functions deploy portfolio-interactions
    ```
 4. Set a strong random `IP_HASH_SECRET` function secret. Supabase supplies `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` to Edge Functions automatically:
@@ -46,7 +47,7 @@ The frontend stays inactive until the Supabase URL and anon key are configured, 
 git clone https://github.com/Allhaildahking/portfolio.git
 cd portfolio
 python -m http.server 8000
-``
+```
 Open http://localhost:8000.
 
 ## Links
