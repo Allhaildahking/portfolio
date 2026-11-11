@@ -55,16 +55,12 @@
     likeButton.setAttribute("aria-label", "Like this post");
     likeButton.setAttribute("aria-pressed", "false");
 
-    const viewCount = document.createElement("span");
-    viewCount.className = "social-view-count";
-    viewCount.textContent = "Views";
-
-    actions.append(likeButton, viewCount);
+    actions.append(likeButton);
     const existingActions = post.querySelector(".post-actions");
     if (existingActions) existingActions.insertAdjacentElement("afterend", actions);
     else post.querySelector(".post-content")?.append(actions);
 
-    const ui = { postId, likeButton, viewCount, likeCount: 0, liked: false };
+    const ui = { postId, likeButton, likeCount: 0, liked: false };
     interfaces.push(ui);
 
     likeButton.addEventListener("click", async () => {
@@ -103,20 +99,11 @@
         ui.likeButton.textContent = `♥ ${ui.likeCount}`;
         ui.likeButton.classList.toggle("is-liked", ui.liked);
         ui.likeButton.setAttribute("aria-pressed", String(ui.liked));
-        ui.viewCount.textContent = `${Number(data.views || 0)} views`;
       });
     } catch {
       // Interactions are optional; the feed remains usable if the service is unavailable.
     }
   };
 
-  const recordViews = async () => {
-    try {
-      await callFunction({ action: "views", postIds });
-    } catch {
-      // View counts are non-blocking.
-    }
-  };
-
-  recordViews().finally(refresh);
+  refresh();
 })();
