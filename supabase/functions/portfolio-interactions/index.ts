@@ -143,10 +143,10 @@ Deno.serve(async (request) => {
         ip_hash: ipHash,
         display_name: displayName,
         body,
-        status: "pending",
+        status: "approved",
       });
       if (error) throw error;
-      return json({ ok: true, pending: true });
+      return json({ ok: true, pending: false });
     }
 
     return json({ ok: false, error: "Unknown action." }, 400);
