@@ -1681,3 +1681,17 @@ body.entry-locked { overflow: hidden; }
   .search-results-header h1 { font-size: 21px; }
   .search-result-card { padding: 14px 15px; }
 }
+
+
+/* Unified Lucide icon system */
+.ui-icon,.art-icon{display:inline-block;width:1.12em;height:1.12em;vertical-align:-.18em;stroke-width:1.8;flex:none}
+.nav-icon .ui-icon{width:23px;height:23px;stroke-width:1.75}
+.mobile-bottom .ui-icon{width:21px;height:21px;stroke-width:1.8}
+.post-actions .ui-icon{width:16px;height:16px}
+.profile-mark .ui-icon{width:13px;height:13px;color:#8dbcf5}
+.more .ui-icon{width:18px;height:18px}
+.project-icon .ui-icon,.contact-icon .ui-icon{width:20px;height:20px}
+.art-icon{width:42px;height:42px;color:#d8e8fb;stroke-width:1.35}
+.search-box-icon .ui-icon{width:18px;height:18px}
+.profile-meta .ui-icon{width:14px;height:14px;margin-right:4px;color:#8dbcf5}
+.ui-icon{pointer-events:none}
