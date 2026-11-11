@@ -16,9 +16,8 @@ HTML, CSS, and vanilla JavaScript. No frontend build step is required. The optio
 
 The homepage interaction layer supports:
 - Likes tied to an anonymous browser ID.
-- Public view counts.
 
-There are no visitor accounts, passwords, comments, reposts, bookmarks, or visitor notifications.
+There are no visitor accounts, passwords, comments, reposts, bookmarks, public view counts, or visitor notifications.
 
 ### Supabase setup
 
