@@ -23,7 +23,13 @@ Deno.serve(async (request) => {
   if (request.method !== "POST") return json({ ok: false, error: "Method not allowed." }, 405);
 
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
-  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const secretKeysRaw = Deno.env.get("SUPABASE_SECRET_KEYS");
+  let serviceKey: string | undefined;
+  try {
+    serviceKey = secretKeysRaw ? JSON.parse(secretKeysRaw).default : undefined;
+  } catch {
+    serviceKey = undefined;
+  }
   const ipSecret = Deno.env.get("IP_HASH_SECRET");
   if (!supabaseUrl || !serviceKey || !ipSecret) {
     return json({ ok: false, error: "Server configuration is incomplete." }, 500);
