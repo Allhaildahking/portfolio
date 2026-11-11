@@ -83,7 +83,7 @@ Deno.serve(async (request) => {
         p_visitor_hash: visitorHash,
       });
       if (error) throw error;
-      return json({ ok: true, ...(data || { posts: {}, activity: [] }) });
+      return json({ ok: true, ...(data || { posts: {} }) });
     }
 
     if (action === "views") {
@@ -126,27 +126,6 @@ Deno.serve(async (request) => {
         if (error && error.code !== "23505") throw error;
       }
       return json({ ok: true, changed: true });
-    }
-
-    if (action === "comment") {
-      const displayName = String(payload.displayName || "").trim().replace(/\s+/g, " ");
-      const body = String(payload.body || "").trim();
-      if (displayName.length < 2 || displayName.length > 32 || body.length < 2 || body.length > 500) {
-        return json({ ok: false, error: "Name or comment length is invalid." }, 400);
-      }
-      if (/[<>]/.test(displayName)) return json({ ok: false, error: "Please use a simple display name." }, 400);
-      const allowed = await consumeLimit("comment", 3, 86400);
-      if (!allowed) return json({ ok: false, error: "Comment rate limit reached." }, 429);
-      const { error } = await db.from("portfolio_comments").insert({
-        post_id: postId,
-        visitor_hash: visitorHash,
-        ip_hash: ipHash,
-        display_name: displayName,
-        body,
-        status: "approved",
-      });
-      if (error) throw error;
-      return json({ ok: true, pending: false });
     }
 
     return json({ ok: false, error: "Unknown action." }, 400);
