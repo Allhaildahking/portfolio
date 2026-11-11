@@ -1,13 +1,8 @@
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
 (() => {
   const url = window.AHK_SUPABASE_URL;
   const anonKey = window.AHK_SUPABASE_ANON_KEY;
   if (!url || !anonKey) return;
 
-  const supabase = createClient(url, anonKey, {
-    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
-  });
   const posts = [...document.querySelectorAll(".feed > .post")];
   if (!posts.length) return;
 
@@ -33,11 +28,18 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   });
 
   const callFunction = async (payload) => {
-    const { data, error } = await supabase.functions.invoke("portfolio-interactions", {
-      body: { ...payload, visitorId }
+    const response = await fetch(`${url}/functions/v1/portfolio-interactions`, {
+      method: "POST",
+      headers: {
+        "apikey": anonKey,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ ...payload, visitorId })
     });
-    if (error) throw error;
-    if (!data?.ok) throw new Error(data?.error || "The request could not be completed.");
+    const data = await response.json();
+    if (!response.ok || !data?.ok) {
+      throw new Error(data?.error || "The request could not be completed.");
+    }
     return data;
   };
 
