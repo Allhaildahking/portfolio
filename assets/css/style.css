@@ -1695,3 +1695,58 @@ body.entry-locked { overflow: hidden; }
 .search-box-icon .ui-icon{width:18px;height:18px}
 .profile-meta .ui-icon{width:14px;height:14px;margin-right:4px;color:#8dbcf5}
 .ui-icon{pointer-events:none}
+
+
+/* Precision alignment for Lucide icons and verification marks */
+.profile-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  width: 14px;
+  height: 14px;
+  margin-left: 3px;
+  position: relative;
+  top: -1px;
+}
+.profile-mark .ui-icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.1;
+  vertical-align: middle;
+}
+.post-byline strong .profile-mark {
+  width: 13px;
+  height: 13px;
+  top: -1px;
+}
+.post-byline strong .profile-mark .ui-icon {
+  width: 13px;
+  height: 13px;
+}
+.profile-meta > span,
+.profile-meta > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.4;
+}
+.profile-meta .ui-icon {
+  display: block;
+  flex: 0 0 14px;
+  margin: 0;
+  vertical-align: middle;
+}
+.nav-icon,
+.mobile-bottom a,
+.post-actions a,
+.search-box-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.post-actions a {
+  justify-content: flex-start;
+}
