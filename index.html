@@ -1,12 +1,56 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#000000"><meta name="description" content="The feed of Destiny Growrich, sharing ideas, build logs, and project updates.">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08090b"><meta name="description" content="The personal feed of Destiny Growrich. Building software, exploring AI, and documenting the process. EXPECT GREATNESS.">
+<meta name="author" content="Destiny Growrich">
+<link rel="canonical" href="https://allhaildahking.github.io/portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ALLHAILDAHKING">
+<meta property="og:title" content="ALLHAILDAHKING — Destiny Growrich">
+<meta property="og:description" content="The personal feed of Destiny Growrich. Building software, exploring AI, and documenting the process. EXPECT GREATNESS.">
+<meta property="og:url" content="https://allhaildahking.github.io/portfolio/">
+<meta property="og:image" content="https://allhaildahking.github.io/portfolio/assets/img/cover-photo.jpg">
+<meta property="og:image:alt" content="ALLHAILDAHKING — Destiny Growrich">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALLHAILDAHKING — Destiny Growrich">
+<meta name="twitter:description" content="The personal feed of Destiny Growrich. Building software, exploring AI, and documenting the process. EXPECT GREATNESS.">
+<meta name="twitter:image" content="https://allhaildahking.github.io/portfolio/assets/img/cover-photo.jpg">
 <title>Home / Destiny Growrich</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/style.css"><link rel="icon" href="./assets/img/1022540622_1794309018437442.jpg">
-</head><body><div class="app-shell"><aside class="left-rail">
+</head><body class="entry-locked">
+<div class="entry-screen" id="entry-screen" role="dialog" aria-modal="true" aria-labelledby="entry-title">
+  <div class="entry-orbit entry-orbit-one"></div><div class="entry-orbit entry-orbit-two"></div>
+  <div class="entry-content">
+    <a class="entry-mark" href="./index.html" aria-label="ALLHAILDAHKING home">A<span>.</span></a>
+    <p class="entry-kicker">A PERSONAL SPACE BY DESTINY GROWRICH</p>
+    <h1 id="entry-title">ALLHAILDAHKING</h1>
+    <p class="entry-tagline">Building. Learning. Becoming.</p>
+    <span class="entry-motto">EXPECT GREATNESS</span>
+    <button class="entry-button" id="enter-site" type="button">Enter site <span aria-hidden="true">↗</span></button>
+    <p class="entry-footnote">@allhaildahking <span>·</span> EST. IN PROGRESS</p>
+  </div>
+</div>
+<script>
+(function () {
+  const screen = document.getElementById("entry-screen");
+  const enter = document.getElementById("enter-site");
+  try {
+    if (sessionStorage.getItem("ahk-entry-seen") === "1") {
+      screen.hidden = true;
+      document.body.classList.remove("entry-locked");
+    }
+  } catch (error) {}
+  enter.addEventListener("click", function () {
+    try { sessionStorage.setItem("ahk-entry-seen", "1"); } catch (error) {}
+    screen.classList.add("entry-screen-exit");
+    document.body.classList.remove("entry-locked");
+    window.setTimeout(function () { screen.hidden = true; }, 260);
+  });
+})();
+</script>
+<div class="app-shell"><aside class="left-rail">
 <a class="brand" href="./index.html" aria-label="Allhaildahking"><span class="brand-mark">A<span>.</span></span></a>
 <nav class="main-nav" aria-label="Main navigation">
 <a class="nav-item active" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
