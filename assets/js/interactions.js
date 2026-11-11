@@ -111,7 +111,7 @@
     bodyInput.required = true;
     const submit = make("button", "comment-submit", "Send comment");
     submit.type = "submit";
-    const note = make("p", "comment-note", "Comments are reviewed before they appear publicly.");
+    const note = make("p", "comment-note", "Comments appear publicly as soon as they are submitted.");
     const status = make("p", "interaction-status");
     status.setAttribute("role", "status");
     form.append(nameInput, bodyInput, submit);
@@ -184,7 +184,8 @@
       try {
         await callFunction({ action: "comment", postId, displayName, body });
         bodyInput.value = "";
-        status.textContent = "Thanks. Your comment is waiting for review.";
+        status.textContent = "Your comment is now public.";
+        refresh();
       } catch (error) {
         status.textContent = error.message?.includes("rate") ?
           "You've sent comments recently. Please try again later." :
