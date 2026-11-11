@@ -105,6 +105,6 @@ async function load(category){
 }
 document.querySelectorAll(".explore-tabs button").forEach(b=>b.addEventListener("click",()=>load(b.dataset.category)));
 search.addEventListener("input",render);
-document.querySelector("#side-search").addEventListener("keydown",e=>{if(e.key==="Enter"){search.value=e.target.value;render();}});
+
 load("top");
-</script></body></html>
+</script><script src="./assets/js/site-search.js" defer></script></body></html>
