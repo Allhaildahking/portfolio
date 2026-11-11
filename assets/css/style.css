@@ -454,6 +454,15 @@ button,input {
   font-size:10px
 }
 
+.post-timestamp {
+  color: #748196;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
 .more {
   margin-left:auto;
   font-size:17px;
