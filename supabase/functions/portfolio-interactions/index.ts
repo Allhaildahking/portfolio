@@ -49,7 +49,7 @@ Deno.serve(async (request) => {
     ));
 
     if (!/^[0-9a-f-]{36}$/i.test(visitorId)) return json({ ok: false, error: "Invalid visitor." }, 400);
-    if (action !== "summary" && action !== "views" && !allowedPostIds.has(postId)) {
+    if (action !== "summary" && !allowedPostIds.has(postId)) {
       return json({ ok: false, error: "Unknown post." }, 400);
     }
 
@@ -84,26 +84,6 @@ Deno.serve(async (request) => {
       });
       if (error) throw error;
       return json({ ok: true, ...(data || { posts: {} }) });
-    }
-
-    if (action === "views") {
-      const ids: string[] = Array.isArray(payload.postIds)
-        ? payload.postIds.filter((id: unknown): id is string => typeof id === "string" && allowedPostIds.has(id)).slice(0, 30)
-        : [];
-      if (!ids.length) return json({ ok: true });
-      const allowed = await consumeLimit("views", 1200, 3600);
-      if (!allowed) return json({ ok: false, error: "Rate limit reached." }, 429);
-      const rows = ids.map((id) => ({
-        post_id: id,
-        visitor_hash: visitorHash,
-        ip_hash: ipHash,
-      }));
-      const { error } = await db.from("portfolio_views").upsert(
-        rows,
-        { onConflict: "post_id,visitor_hash", ignoreDuplicates: true },
-      );
-      if (error) throw error;
-      return json({ ok: true });
     }
 
     if (action === "like") {
