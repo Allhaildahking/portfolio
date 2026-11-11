@@ -172,7 +172,11 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
   };
 
   const recordViews = async () => {
-    await Promise.allSettled(postIds.map((postId) => callFunction({ action: "view", postId })));
+    try {
+      await callFunction({ action: "views", postIds });
+    } catch {
+      // View counts are non-blocking; the feed should still load if they fail.
+    }
   };
 
   const rightRail = document.querySelector(".right-rail");
