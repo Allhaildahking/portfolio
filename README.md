@@ -49,5 +49,4 @@ Open http://localhost:8000.
 ## Links
 - Live site: https://allhaildahking.github.io/portfolio/
 - GitHub: https://github.com/Allhaildahking
-- Instagram: https://instagram.com/allhaildahking.py
 - X: https://x.com/allhaildahking
